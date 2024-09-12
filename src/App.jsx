@@ -16,10 +16,11 @@ function App() {
   const [bonous , setBonous] = useState("")
   const [amount , setAmount] = useState(0)
   const [balance, setBalance] = useState(0)
+  const [addExpense, setAddExpense] = useState("")
   const [ amountBudget, setAmountBudget] = useState(0)
   return (
     <>
-    <budgetDeling.Provider value={{amountBudget, setAmountBudget, balance, setBalance, amount, setAmount, bonous, budget, setBonous, setbudget, expenses, setExpenses}}>
+    <budgetDeling.Provider value={{addExpense, setAddExpense, amountBudget, setAmountBudget, balance, setBalance, amount, setAmount, bonous, budget, setBonous, setbudget, expenses, setExpenses}}>
     <Navbar/>
    <BrowserRouter>
     <NavSideBar/>

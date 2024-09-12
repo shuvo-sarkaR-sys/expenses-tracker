@@ -5,13 +5,12 @@ import { budgetDeling } from '../context/Context';
  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
  const MyPieChart = () => {
-  const { budget, balance, expenses } = useContext(budgetDeling)
-  console.log(budget, balance, expenses) 
+  const { budget, expenses } = useContext(budgetDeling)
+  console.log(budget, expenses) 
   const data = [
   { name: 'Budget', value: budget},
   { name: 'Expenses', value: expenses},
-  { name: 'Balance', value:  balance },
- 
+  
 ];
    return (
     <PieChart width={400} height={400}>

@@ -3,12 +3,12 @@ import MyPieChart from '../MyPieChart'
 import { budgetDeling } from '../../context/Context'
 
 const Home = () => {
-  const { budget, expenses, bonous, amount, balance, setBalance, amountBudget, setAmountBudget } = useContext(budgetDeling)
+  const {addExpense, budget, expenses, bonous, amount, balance, setBalance, amountBudget, setAmountBudget } = useContext(budgetDeling)
 
 
   // here is a issue
   const totalAmount = () => {
-    console.log(budget)
+    console.log(addExpense)
     setBalance(parseFloat((budget - expenses) + amount))
 
 

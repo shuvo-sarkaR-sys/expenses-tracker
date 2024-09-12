@@ -2,16 +2,27 @@ import React, { useState, useContext } from 'react'
 import { budgetDeling } from '../../context/Context'
 const Add = () => {
   const [expense, setExpense] = useState("")
-  const {setExpenses} = useContext(budgetDeling);
+  const [text, setText] = useState("")
+  const [option, setOption] = useState("")
+  const {setExpenses, setAddExpense} = useContext(budgetDeling)
   const handleChange = (e)=>{
-    
+    setText(e.target.value)
   }
   const handleAmount =  (e) =>{
   setExpense(parseFloat(e.target.value)) 
   }
   const handleClick = () =>{
     setExpenses(expense)
+  
+     setAddExpense(expense, option)
+
+  
   }
+  const handleCategory =(e)=>{
+setOption(e.target.value)
+  
+  }
+ 
   return (
     <div className=' absolute left-[450px] top-20 w-3/4 items-center m-auto'>
    <form className='m-auto'>
@@ -31,12 +42,14 @@ const Add = () => {
    <h1 className='text-xl'>Add a Category to Your Expense</h1>
    <label >Set catagory:</label>
 
-<select id="category">
+<select onChange={handleCategory } id="category">
   <option value="Select a category"></option>
   <option value="entatainment">Entatainment</option>
   <option value="groceries">Groceries</option>
   <option value="uncatagorized">Uncatagorized</option>
   <option value="audi">Audi</option>
+  <option value='mercedes'>Mercedes</option>
+  <option value="bmw">BMW</option>
 </select>
 <br />
 <br />
@@ -44,6 +57,7 @@ const Add = () => {
   <button onClick={handleClick} className='bg-blue-400 p-2 rounded' type='submit'>Add Expense</button>
   <button className='bg-red-500 p-2 rounded'>Remove Category</button>
   </div>
+  
    </div>
   )
 }
