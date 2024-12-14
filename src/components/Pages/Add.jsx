@@ -34,26 +34,27 @@ setOption(e.target.value)
  
  
   return (
-    <div className=' absolute left-[450px] top-20 w-3/4 items-center m-auto'>
+    <div className='  ml-5 lg:mx-24 lg:mt-20 mt-10 w-3/4 items-center m-auto'>
    <form className='m-auto'>
     <h1 className='text-3xl'>Add an Expense</h1>
     <p className='text-sm'>Adds on to your current expense amout.</p>
     <br />
     <br />
     <p>Label</p>
-    <input onChange={handleChange} className='border-2  border-black w-72' type="text" aria-label='label' placeholder='Ex: Car payments' />
+    <input onChange={handleChange} className='dark:bg-zinc-800 border rounded-md  border-gray-400 p-1  w-72' type="text" aria-label='label' placeholder='Ex: Car payments' />
     <br />
     <br />
     <p>Amount*</p>
-    <input onChange={handleAmount} className='border-2  border-black w-72' type="number" placeholder='Ex: 3000' />
+    <input onChange={handleAmount} className='dark:bg-zinc-800 border-2 rounded-md  border-gray-400 p-1  w-72' type="number" placeholder='Ex: 3000' />
    </form>
+   <br />
    <hr />
    <br />
    <h1 className='text-xl'>Add a Category to Your Expense</h1>
    <label >Set catagory:</label>
 
-<select onChange={handleCategory } id="category">
-  <option value="Select a category"></option>
+<select className='border rounded-md ml-2 mt-1 dark:bg-zinc-800' onChange={handleCategory } id="category">
+  <option value="Select a category">select one</option>
   <option value="entatainment">Entatainment</option>
   <option value="groceries">Groceries</option>
   <option value="uncatagorized">Uncatagorized</option>

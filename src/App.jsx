@@ -20,14 +20,26 @@ function App() {
 
   const [ amountBudget, setAmountBudget] = useState(0)
 
- 
+   const [darkMode, setDarkMode] = useState(false)
+     const handleClick = ()=>{
+      setDarkMode(!darkMode)
+     }
+     useEffect(()=>{
+if(darkMode){
+  document.documentElement.classList.add('dark')
+}
+else{
+  document.documentElement.classList.remove('dark')
+}
+
+     }, [darkMode])
   
   return (
-    <>
+    <div className='dark:bg-[#030712] dark:text-white'>
     <budgetDeling.Provider value={{addExpense, setAddExpense, amountBudget, setAmountBudget, balance, setBalance, amount, setAmount, bonous, budget, setBonous, setbudget, expenses, setExpenses}}>
-    <Navbar/>
+    <Navbar handleClick={handleClick} darkMode={darkMode}/>
    <BrowserRouter>
-    <NavSideBar/>
+   <div className='flex'> <NavSideBar/>
    
     
     <Routes>
@@ -35,10 +47,10 @@ function App() {
       <Route path="add" element={<Add/>}></Route>
       <Route path="budget" element={<Budget/>}></Route>
       <Route path="view" element={<View/>}></Route>
-    </Routes>
+    </Routes></div>
     </BrowserRouter>
     </budgetDeling.Provider>
-    </>
+    </div>
   )
 }
 

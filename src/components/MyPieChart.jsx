@@ -2,18 +2,19 @@
  import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import { budgetDeling } from '../context/Context';
 
- const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+ const COLORS = ['#ed4b82', '#00C49F', '#FFBB28', '#FF8042'];
 
  const MyPieChart = () => {
   const { budget, expenses } = useContext(budgetDeling)
   
   const data = [
+ 
+  { name: 'Expenses', value: expenses}, 
   { name: 'Budget', value: budget},
-  { name: 'Expenses', value: expenses},
   
 ];
    return (
-    <PieChart width={400} height={400}>
+    <PieChart width={480} height={300}>
       <Pie
         data={data}
         cx="50%"
@@ -28,8 +29,7 @@ import { budgetDeling } from '../context/Context';
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
-      <Tooltip />
-      <Legend />
+      
     </PieChart>
    )
  }

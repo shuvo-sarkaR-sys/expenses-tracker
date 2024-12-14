@@ -50,14 +50,14 @@ useEffect(()=>{
   };
 
   return (
-    <div className="absolute left-[380px] pl-20 top-20 w-3/4">
-      <h1 className="text-3xl">Set Your Income / Budget</h1>
+    <div className=" pl-8 mt-5 lg:mt-10 md:pl-20  w-3/4">
+      <h1 className="md:text-3xl text-xl font-bold">Set Your Income / Budget</h1>
       <p className="text-xs text-zinc-600">Sets your income / Budget to the entered value</p>
       <br />
       <p className="text-xl">Enter your budget*</p>
       <input 
         onChange={handleBudgetChange} 
-        className="w-[300px] border-2 h-9 border-black" 
+        className="md:w-[300px] mt-2 w-60 border-2 h-9 dark:bg-zinc-800 p-1 rounded-md border-black" 
         type="text" 
         placeholder="Ex: 5000" 
       />
@@ -74,7 +74,7 @@ useEffect(()=>{
       <p>Label*</p>
       <input 
         onChange={handleBonusLabelChange} 
-        className="w-[300px] border-2 h-9" 
+        className="md:w-[300px] w-60 dark:bg-zinc-800 p-1 rounded-md border-2 h-9" 
         type="text" 
         placeholder="Ex: Eid bonus" 
       />
@@ -83,7 +83,7 @@ useEffect(()=>{
       <p>Amount *</p>
       <input 
         onChange={handleBonusAmountChange} 
-        className="w-[300px] border-2 h-9" 
+        className="md:w-[300px] w-60 dark:bg-zinc-800 p-1 rounded-md border-2 h-9" 
         type="number" 
         placeholder="Ex: 5000" 
       />
@@ -94,11 +94,11 @@ useEffect(()=>{
       <br />
       <hr />
       <br />
-      <h1 className="text-3xl">Reset your Budget</h1>
+      <h1 className="md:text-3xl text-xl">Reset your Budget</h1>
       <br />
       <button className="bg-red-600 text-white p-2 rounded-md" onClick={handleResetBudget}>Reset Budget</button>
       <br />
-      <p className="text-red-600 text-xl ml-12">0</p>
+      <p className="text-red-600 text-xl mt-3 ml-12">0</p>
     </div>
   );
 };
