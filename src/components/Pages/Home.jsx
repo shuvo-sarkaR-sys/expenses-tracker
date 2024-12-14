@@ -71,7 +71,7 @@ const Home = () => {
       <br />
       <div className='flex justify-between flex-wrap md:mr-32'>
         <div>
-          <div className='flex  md:w-1/2 gap-10 w-full bg-white p-3 rounded-md justify-between '>
+          <div className='flex dark:bg-zinc-800 md:w-1/2 gap-10  bg-white p-3 rounded-md justify-between '>
               <p>Food</p>
               <h1>$100</h1>
           </div>
