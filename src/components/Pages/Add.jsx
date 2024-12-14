@@ -1,27 +1,37 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { budgetDeling } from '../../context/Context'
 const Add = () => {
   const [expense, setExpense] = useState("")
   const [text, setText] = useState("")
   const [option, setOption] = useState("")
   const {setExpenses, setAddExpense} = useContext(budgetDeling)
+
   const handleChange = (e)=>{
     setText(e.target.value)
   }
   const handleAmount =  (e) =>{
-  setExpense(parseFloat(e.target.value)) 
+  setExpense(parseFloat(e.target.value) || 0) 
   }
+ 
   const handleClick = () =>{
-    setExpenses(expense)
-  
-     setAddExpense(expense, option)
+    const number = expense;
+    if(!isNaN(number)){
+      setExpenses((prevTotal)=> prevTotal + number)
+      setExpense('')
+    }
+     
+    }
+    //  setAddExpense(expense, option, text)
 
   
-  }
+  
+   
   const handleCategory =(e)=>{
 setOption(e.target.value)
   
   }
+ 
+ 
  
   return (
     <div className=' absolute left-[450px] top-20 w-3/4 items-center m-auto'>
@@ -35,7 +45,7 @@ setOption(e.target.value)
     <br />
     <br />
     <p>Amount*</p>
-    <input onChange={handleAmount} className='border-2  border-black w-72' type="text" placeholder='Ex: 3000' />
+    <input onChange={handleAmount} className='border-2  border-black w-72' type="number" placeholder='Ex: 3000' />
    </form>
    <hr />
    <br />

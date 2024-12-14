@@ -1,17 +1,31 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import MyPieChart from '../MyPieChart'
 import { budgetDeling } from '../../context/Context'
 
 const Home = () => {
   const {addExpense, budget, expenses, bonous, amount, balance, setBalance, amountBudget, setAmountBudget } = useContext(budgetDeling)
 
+ 
+// store the value in localStroge
 
+ 
+ 
   // here is a issue
+
+useEffect(()=>{
+  const savedBalance = localStorage.getItem('Balance');
+  if (savedBalance) {
+    setBalance(parseFloat(savedBalance)); // Set balance from localStorage if it exists
+  }
+}, [setBalance])
+
   const totalAmount = () => {
-    console.log(addExpense)
-    setBalance(parseFloat((budget - expenses) + amount))
-
-
+   
+    // setBalance(parseFloat((budget - expenses) + amount))
+    const newBalance = parseFloat((budget - expenses) + amount)
+    setBalance(newBalance)
+    localStorage.setItem('Balance', newBalance)
+      console.log(newBalance)
 
 
   }
@@ -31,7 +45,7 @@ const Home = () => {
   }, [amount])
   useEffect(() => {
     totalAmount()
-  }, [budget, expenses])
+  }, [budget, expenses, amount])
   return (
     <div className='font-semibold absolute right-0 top-16 w-3/4  pt-10 pl-10 bg-slate-100'>
 

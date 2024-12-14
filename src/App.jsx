@@ -1,4 +1,4 @@
-import { useState ,useContext } from 'react'
+import { useState ,useContext, useEffect } from 'react'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import './App.css'
 import Navbar from './components/Navbar'
@@ -10,14 +10,18 @@ import View from './components/Pages/View'
 import { budgetDeling } from './context/Context'
 
 function App() {
-
+   
   const [budget, setbudget] = useState(0)
   const [expenses, setExpenses] = useState(0)
   const [bonous , setBonous] = useState("")
   const [amount , setAmount] = useState(0)
   const [balance, setBalance] = useState(0)
-  const [addExpense, setAddExpense] = useState("")
+  const [addExpense, setAddExpense] = useState()
+
   const [ amountBudget, setAmountBudget] = useState(0)
+
+ 
+  
   return (
     <>
     <budgetDeling.Provider value={{addExpense, setAddExpense, amountBudget, setAmountBudget, balance, setBalance, amount, setAmount, bonous, budget, setBonous, setbudget, expenses, setExpenses}}>
@@ -39,3 +43,4 @@ function App() {
 }
 
 export default App
+ 

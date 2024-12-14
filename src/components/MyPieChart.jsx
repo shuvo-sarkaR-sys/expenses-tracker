@@ -6,7 +6,7 @@ import { budgetDeling } from '../context/Context';
 
  const MyPieChart = () => {
   const { budget, expenses } = useContext(budgetDeling)
-  console.log(budget, expenses) 
+  
   const data = [
   { name: 'Budget', value: budget},
   { name: 'Expenses', value: expenses},

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { budgetDeling } from '../../context/Context';
 
 const Budget = () => {
@@ -10,10 +10,25 @@ const Budget = () => {
   const handleBudgetChange = (e) => {
     setBudget(parseFloat(e.target.value) || 0);
   };
+ 
+const [total, setTotal] = useState(0)
 
+useEffect(()=>{
+  const saveTotal = localStorage.getItem('total')
+  if(saveTotal){
+    setTotal(parseFloat(saveTotal))
+  }
+})
   const handleSetBudget = () => {
-    setbudget(budget);
      
+     const number = budget;
+     if(!isNaN(number)){
+     
+      setbudget((prevTotal)=> prevTotal + number)
+       
+      setBudget('')
+      
+     }
     }
   
 
